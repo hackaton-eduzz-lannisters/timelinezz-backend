@@ -11,6 +11,7 @@ class CreateAppGroups extends Migration
         Schema::create("app_groups", function (Blueprint $table) {
             $table->increments("id");
             $table->string("name");
+            $table->string("token");
             $table->integer("user_id")->unsigned();
             $table->timestamps();
             $table->softDeletes();

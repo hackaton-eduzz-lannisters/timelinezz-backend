@@ -13,6 +13,7 @@ class CreateUsers extends Migration
             $table->string("name");
             $table->string("email");
             $table->string("avatar");
+            $table->string("password");
             $table->timestamps();
             $table->softDeletes();
         });
