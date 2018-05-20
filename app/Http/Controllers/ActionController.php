@@ -38,6 +38,14 @@ class ActionController extends Controller
 		
         return $ret;
     }
+    public function del(Request $request, $appId)
+    {
+	    $ret = $this->checkActionOwner($request, $appId);
+
+		$this->actionService->del($appId);
+		
+        return $ret;
+    }
     public function add(Request $request)
     {
 	    $data = $request->all();
