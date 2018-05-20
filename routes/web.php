@@ -16,3 +16,7 @@ $router->get("/application/generateKey/{id}", ["uses" => "ApplicationController@
 $router->get("/action", ["uses" => "ActionController@list", "middleware" => "auth"]);
 $router->post("/action", ["uses" => "ActionController@add", "middleware" => "auth"]);
 $router->put("/action/{id}", ["uses" => "ActionController@update", "middleware" => "auth"]);
+$router->delete("/action/{id}", ["uses" => "ActionController@del", "middleware" => "auth"]);
+
+$router->get("/history", ["uses" => "HistoryController@list", "middleware" => "auth"]);
+$router->post("/history", ["uses" => "HistoryController@add", "middleware" => "auth"]);

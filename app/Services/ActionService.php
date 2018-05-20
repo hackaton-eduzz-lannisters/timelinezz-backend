@@ -24,6 +24,9 @@ class ActionService implements ActionServiceInterface
     {
         return $this->actionRepository->update($appId, $data);
     }
+    public function del($appId) {
+	    return $this->actionRepository->delete($appId);
+    }
 
     public function getById($appId) {
         return $this->actionRepository->find($appId);

@@ -30,9 +30,19 @@ class ActionController extends Controller
     public function list() {
         return $this->actionRepository->all();
     }
+    public function del(Request $request, $appId)
+    {
+	    $ret = $this->checkActionOwner($request, $appId);
+
+		$this->actionService->del($appId);
+		
+        return $ret;
+    }
     public function add(Request $request)
     {
-        $app = $this->actionService->create($request->all());
+	    $data = $request->all();
+	    $data['user_id'] = $request->attributes->get('user')->sub;
+        $app = $this->actionService->create($data);
 
         return $app;
     }
