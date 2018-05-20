@@ -45,6 +45,10 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
+        if ($e instanceof \DomainException) {
+            return response()->json($e, $e->getCode());
+        }
+        
         return parent::render($request, $e);
     }
 }

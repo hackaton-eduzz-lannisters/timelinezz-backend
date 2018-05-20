@@ -18,6 +18,13 @@ class AuthController extends Controller{
     public function login(Request $request)
     {
         $data = $request->all();
-        return $this->authService->attempt($data);
+        $result = $this->authService->attempt($data);
+        return response()->json($result, 200);
+    }
+    
+    public function create(Request $request)
+    {
+        $result = $this->authService->createAccount($request->all());
+        return response()->json($result, 201);
     }
 }

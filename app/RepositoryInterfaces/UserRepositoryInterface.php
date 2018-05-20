@@ -4,5 +4,5 @@ namespace App\RepositoryInterfaces;
 
 interface UserRepositoryInterface
 {
-    function retrieveAllUserHistories($userId);
+    function findByCredentials($email);
 }
