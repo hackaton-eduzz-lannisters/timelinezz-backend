@@ -17,6 +17,7 @@ class HistoryResponseMapper
         return $data->map(function ($item) {
             return [
                 "id" => $item->id,
+                "created_at" => $item->created_at,
                 "user" => [
                     "id" => $item->follows->following->id,
                     "name" => $item->follows->following->name,
