@@ -25,6 +25,9 @@ class ApplicationService implements ApplicationServiceInterface
     {
         return $this->appRepository->update($appId, $data);
     }
+    public function del($appId) {
+	    return $this->appRepository->delete($appId);
+    }
 
     public function generateKey() {
         return uniqid();
