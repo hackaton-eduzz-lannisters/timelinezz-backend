@@ -1,6 +1,8 @@
 <?php
 
 $router->get("/timeline", ["uses" => "TimelineController@allUsers"]);
+
+$router->get("/application", ["uses" => "ApplicationController@list"]);
 $router->get("/timeline/{followId}", ["uses" => "TimelineController@specificUser"]);
 
 $router->get("/application", ["uses" => "ApplicationController@list"]);
