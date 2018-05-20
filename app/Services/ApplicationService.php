@@ -17,6 +17,26 @@ class ApplicationService implements ApplicationServiceInterface
     
     public function create($data)
     {
+        $data['token'] = $this->generateKey();
         return $this->appRepository->create($data);
+    }
+    
+    public function update($appId, $data)
+    {
+        return $this->appRepository->update($appId, $data);
+    }
+
+    public function generateKey() {
+        return uniqid();
+    }
+    public function getById($appId) {
+        return $this->appRepository->find($appId);
+    }
+    public function updateToken($appId) {
+        $data = [
+            'token' => $this->generateKey()
+        ];
+        
+        $this->update($appId, $data);
     }
 }
