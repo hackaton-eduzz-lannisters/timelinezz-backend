@@ -10,9 +10,9 @@ class CreateLinks extends Migration
     {
         Schema::create("links", function (Blueprint $table) {
             $table->increments("id");
-            $table->string("title");
-            $table->string("description");
-            $table->string("image");
+            $table->string("title")->nullable();
+            $table->string("description")->nullable();
+            $table->string("image")->nullable();
             $table->string("url");
             $table->timestamps();
             $table->softDeletes();
