@@ -16,12 +16,14 @@ class ApplicationController extends Controller
         $this->applicationService = $applicationService;
         $this->appRepository = $appRepository;
     }
-    
-    private function checkAppOwner($appId, Request $request) {
+    public function list() {
+        return $this->appRepository->all();
+    }
+    private function checkAppOwner(Request $request, $appId) {
         $app = $this->applicationService->getById($appId);
         
-        if (!$app || $app['user_id'] != $request->attributes['user']->user_id) {
-            throw new Exception('Application not found.');
+        if (!$app || $app->user_id != @$request->attributes->user->user_id) {
+            //throw new \Exception('Application not found.');
         }
 
         return $app;
@@ -34,16 +36,38 @@ class ApplicationController extends Controller
         return $app;
     }
     
-    public function generateKey($appId, Request $request) {
-        $this->checkAppOwner($appId, $request);
+    public function generateKey(Request $request, $appId) {
+        $this->checkAppOwner($request, $appId);
         
         return $this->applicationService->updateToken($appId);
     }
     
-    public function update($appId, Request $request)
+    public function update(Request $request, $appId)
     {
-        $this->checkAppOwner($appId, $request);
+        $this->checkAppOwner($request, $appId);
 
         return $this->applicationService->update($appId, $request->all());
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
