@@ -18,6 +18,11 @@ use App\Services\ApplicationService;
 use App\Services\TimelineService;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
+use App\Services\AuthService;
+use App\ServiceInterfaces\AuthServiceInterface;
+use App\ServiceInterfaces\UserServiceInterface;
+use App\Services\UserService;
+
 class AppServiceProvider extends ServiceProvider
 {
     public function register()
@@ -30,6 +35,8 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(ActionServiceInterface::class, ActionService::class);
         $this->app->singleton(TimelineServiceInterface::class, TimelineService::class);
         $this->app->singleton(ApplicationServiceInterface::class, ApplicationService::class);
+        $this->app->singleton(UserServiceInterface::class, UserService::class);
+        $this->app->singleton(AuthServiceInterface::class, AuthService::class);
     }
     
     public function boot()

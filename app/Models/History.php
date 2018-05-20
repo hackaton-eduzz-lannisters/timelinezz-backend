@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Model;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\UserFollow;
 
 class History extends Model
 {

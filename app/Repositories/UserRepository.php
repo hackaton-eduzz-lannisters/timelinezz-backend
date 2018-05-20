@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\Model\User;
+use App\Models\User;
 use App\RepositoryInterfaces\UserRepositoryInterface;
 
 class UserRepository extends AbstractRepository implements UserRepositoryInterface
@@ -12,8 +12,8 @@ class UserRepository extends AbstractRepository implements UserRepositoryInterfa
         parent::__construct(new User());
     }
     
-    public function retrieveAllUserHistories($userId)
+    public function findByCredentials($email)
     {
-        
+        return $this->model->where(["email" => $email])->first();
     }
 }
