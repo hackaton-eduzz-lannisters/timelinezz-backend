@@ -28,7 +28,7 @@ class HistoryService implements HistoryServiceInterface
             $link = $this->linkService->getByUrl($url);
             
             if ($link)
-                $data['link_id'] = $link->id;
+                $data['link_id'] = $link['id'];
 
             $data['url'] = null;
             unset($data['url']);
