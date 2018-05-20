@@ -30,3 +30,4 @@ class UsersTableSeeder extends Seeder
         ]);
     }
 }
+ 
