@@ -9,16 +9,17 @@ use App\ServiceInterfaces\TimelineServiceInterface;
 class TimelineService implements TimelineServiceInterface
 {   
     private $historyRepository;
+    private $mapper;
     
-    public function __construct(HistoryRepositoryInterface $userRepository)
+    public function __construct(HistoryRepositoryInterface $userRepository, HistoryResponseMapper $mapper)
     {
         $this->historyRepository = $userRepository;
+        $this->mapper = $mapper;
     }
     
     public function allUsersTimelines($userId)
     {
         $userHistories = $this->historyRepository->retrieveAllUserHistories($userId);
-        $mapper = new HistoryResponseMapper();
-        return $mapper->transform($userHistories);
+        return $this->mapper->transform($userHistories);
     }
 }
