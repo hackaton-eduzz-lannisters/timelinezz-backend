@@ -25,6 +25,7 @@ class AuthMiddleware
             }
             
             $clean = trim(str_replace("Bearer ", "", $header));
+            
             $user = JWT::decode($clean, env("APP_SECRET"), ["HS256"]);
             
             $request->attributes->add(["user" => $user]);
@@ -32,7 +33,7 @@ class AuthMiddleware
             return $next($request);
             
         } catch (\Exception $e) {
-            throw new AuthException("Houve uma falha na autenticação. Verifique os dados e tente novamente.", 401);
+            throw new AuthException("Houve uma falha na autenticação. Verifique os dados e tente novamente. ".$e->getMessage(), 401);
         }
     }
 }

@@ -20,15 +20,15 @@ class ActionController extends Controller
     private function checkActionOwner(Request $request, $appId) {
         $app = $this->actionService->getById($appId);
         
-        if (!$app || $app->user_id != @$request->attributes->user->user_id) {
-            //throw new \Exception('Action not found.');
+        if (!$app || $app->user_id != $request->attributes->get('user')->sub) {
+            throw new \Exception('Action not found.');
         }
 
         return $app;
     }
     
-    public function list() {
-        return $this->actionRepository->all();
+    public function list(Request $request) {
+        return $this->actionRepository->byUser($request->attributes->get('user')->sub);
     }
     public function add(Request $request)
     {

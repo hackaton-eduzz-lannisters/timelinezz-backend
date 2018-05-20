@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\Model\History;
+use App\Models\History;
 use App\RepositoryInterfaces\HistoryRepositoryInterface;
 
 class HistoryRepository extends AbstractRepository implements HistoryRepositoryInterface

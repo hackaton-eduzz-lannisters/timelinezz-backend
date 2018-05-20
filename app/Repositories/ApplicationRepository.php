@@ -11,4 +11,8 @@ class ApplicationRepository extends AbstractRepository implements ApplicationRep
     {
         parent::__construct(new Application());
     }
+    public function byUser($userId, $records = 10)
+    {
+        return $this->model->where('user_id', $userId)->paginate($records);
+    }
 }
