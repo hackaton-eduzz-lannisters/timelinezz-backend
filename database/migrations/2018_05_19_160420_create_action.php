@@ -16,7 +16,7 @@ class CreateAction extends Migration
             $table->integer("user_id")->unsigned();
             $table->timestamps();
             $table->softDeletes();
-            $table->unique(["tag", "user_id"], "idx_unq_tag");
+            $table->unique(["tag", "user_id"]);
             $table->foreign("user_id")->references("id")
                                       ->on("users");
         });
