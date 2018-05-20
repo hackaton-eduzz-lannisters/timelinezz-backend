@@ -12,6 +12,7 @@ $router->get("/application", ["uses" => "ApplicationController@list", "middlewar
 $router->post("/application", ["uses" => "ApplicationController@add", "middleware" => "auth"]);
 $router->put("/application/{id}", ["uses" => "ApplicationController@update", "middleware" => "auth"]);
 $router->get("/application/generateKey/{id}", ["uses" => "ApplicationController@generateKey", "middleware" => "auth"]);
+$router->delete("/application/{id}", ["uses" => "ApplicationController@del", "middleware" => "auth"]);
 
 $router->get("/action", ["uses" => "ActionController@list", "middleware" => "auth"]);
 $router->post("/action", ["uses" => "ActionController@add", "middleware" => "auth"]);
