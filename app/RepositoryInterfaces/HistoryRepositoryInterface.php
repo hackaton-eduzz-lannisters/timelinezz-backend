@@ -2,7 +2,7 @@
 
 namespace App\RepositoryInterfaces;
 
-interface ApplicationRepositoryInterface
+interface HistoryRepositoryInterface
 {
     
 }

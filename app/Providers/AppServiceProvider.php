@@ -2,24 +2,22 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\ServiceProvider;
-
-use App\ServiceInterfaces\ActionServiceInterface;
-use App\Services\ActionService;
-use App\RepositoryInterfaces\ActionRepositoryInterface;
 use App\Repositories\ActionRepository;
-use App\Repositories\UserRepository;
-use App\RepositoryInterfaces\UserRepositoryInterface;
-use App\ServiceInterfaces\TimelineServiceInterface;
-use App\Services\TimelineService;
-use App\RepositoryInterfaces\HistoryRepositoryInterface;
-use App\Repositories\HistoryRepository;
-use App\ServiceInterfaces\ApplicationServiceInterface;
-use App\Services\ApplicationService;
-use App\RepositoryInterfaces\ApplicationRepositoryInterface;
 use App\Repositories\ApplicationRepository;
-
+use App\Repositories\HistoryRepository;
+use App\Repositories\UserRepository;
+use App\RepositoryInterfaces\ActionRepositoryInterface;
+use App\RepositoryInterfaces\ApplicationRepositoryInterface;
+use App\RepositoryInterfaces\HistoryRepositoryInterface;
+use App\RepositoryInterfaces\UserRepositoryInterface;
+use App\ServiceInterfaces\ActionServiceInterface;
+use App\ServiceInterfaces\ApplicationServiceInterface;
+use App\ServiceInterfaces\TimelineServiceInterface;
+use App\Services\ActionService;
+use App\Services\ApplicationService;
+use App\Services\TimelineService;
+use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Schema;
 class AppServiceProvider extends ServiceProvider
 {
     public function register()

@@ -22,4 +22,10 @@ class TimelineService implements TimelineServiceInterface
         $userHistories = $this->historyRepository->retrieveAllUserHistories($userId);
         return $this->mapper->transform($userHistories);
     }
+    
+    public function userTimeline($userId, $followId)
+    {
+        $userHistories = $this->historyRepository->retrieveUserHistories($userId, $followId);
+        return $this->mapper->transform($userHistories);
+    }
 }

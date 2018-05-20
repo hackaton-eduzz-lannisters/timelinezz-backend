@@ -21,4 +21,12 @@ class TimelineController extends Controller
         $timelines = $this->timelineService->allUsersTimelines($userId);
         return response()->json($timelines, 200);
     }
+    
+    public function specificUser(Request $request, int $followId)
+    {
+        $userId = 2;
+        
+        $timelines = $this->timelineService->userTimeline($userId, $followId);
+        return response()->json($timelines, 200);
+    }
 }

@@ -21,7 +21,7 @@ class ApplicationController extends Controller
         $app = $this->applicationService->getById($appId);
         
         if (!$app || $app['user_id'] != $request->attributes['user']->user_id) {
-            throw new Exception('Application not found.');
+            throw new \Exception('Application not found.');
         }
 
         return $app;
