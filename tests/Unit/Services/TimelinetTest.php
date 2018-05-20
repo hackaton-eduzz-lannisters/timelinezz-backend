@@ -2,13 +2,11 @@
 
 namespace Tests\Unit;
 
-use Eduzz\Hermes\Hermes;
-use Mockery as M;
-
-use \Tests\BaseTest;
+use App\Mappers\Responses\HistoryResponseMapper;
 use App\Repositories\HistoryRepository;
 use App\Services\TimelineService;
-use App\Mappers\Responsses\HistoryResponseMapper;
+use Tests\BaseTest;
+use Mockery as M;
 
 class TestTimelineService extends BaseTest
 {
