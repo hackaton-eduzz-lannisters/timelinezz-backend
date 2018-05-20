@@ -37,6 +37,6 @@ class ApplicationService implements ApplicationServiceInterface
             'token' => $this->generateKey()
         ];
         
-        $this->update($appId, $data);
+        return $this->update($appId, $data);
     }
 }

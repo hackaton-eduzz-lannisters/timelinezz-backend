@@ -20,7 +20,8 @@ abstract class AbstractRepository
     
     public function update($id, array $data)
     {
-        return $this->model->update($id, $data);
+        if ($this->model->where('id', $id)->update($data))
+            return $this->model->find($id);
     }
     
     public function all($records = 10)
